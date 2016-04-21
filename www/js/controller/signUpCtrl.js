@@ -1,8 +1,15 @@
-app.controller('signUpCtrl', function($scope, $filter, ionicDatePicker) {
+app.factory("User", function($firebaseArray) {
+  var userRef = new Firebase("https://toedaily.firebaseio.com/user");
+  return $firebaseArray(userRef);
+});
+
+app.controller('signUpCtrl', function($scope, $filter, ionicDatePicker, User) {
+    var dob;
     var ipObj1 = {
       callback: function (val) {  //Mandatory
       	var x = $filter('date')(new Date(val), "yyyy-MM-dd");;
       	$scope.dob = x;
+        dob = x;
       },
       disabledDates: [            //Optional
         new Date(2016, 2, 16),
@@ -26,7 +33,14 @@ app.controller('signUpCtrl', function($scope, $filter, ionicDatePicker) {
       ionicDatePicker.openDatePicker(ipObj1);
     };
 
-    $scope.signUp = function() {
-    	alert("asd");
+    $scope.signUp = function(user) {
+    	$scope.user = User;
+    	var result = $scope.user.$add({
+        	"email": user.email,
+        	"password": user.password,
+          "gender": user.gender,
+        	"dob": dob
+      	});
+      	alert(result);
     };
 });

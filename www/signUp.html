@@ -2,23 +2,23 @@
 <ion-content>
 <div class="list padding">
   <label class="item item-input">
-    <input type="text" placeholder="Email" />
+    <input type="text" placeholder="Email" ng-model="user.email"/>
   </label>
   <label class="item item-input">
-    <input type="text" placeholder="Password" />
+    <input type="text" placeholder="Password" ng-model="user.password"/>
   </label>
   <label class="item item-input">
-    <input type="text" placeholder="Re-enter Password" />
+    <input type="text" placeholder="Re-enter Password" ng-model="repassword"/>
   </label>
-  <ion-radio ng-model="choice" ng-value="'A'">Male</ion-radio>
-  <ion-radio ng-model="choice" ng-value="'B'">Female</ion-radio>
+  <ion-radio ng-model="user.gender" ng-value="'male'">Male</ion-radio>
+  <ion-radio ng-model="user.gender" ng-value="'female'">Female</ion-radio>
 
   <label class="item item-input">
     <input type="text" placeholder="Date of birth" value="{{dob}}"/>
   </label>
   <button class="button button-positive" style="margin: 0;" ng-click="openDatePicker()">Select Date</button>
 
-  <button class="button button-block button-positive" ng-click="signUp()">
+  <button class="button button-block button-positive" ng-click="signUp(user)">
     Submit
   </button>
   <a href="#/login" class="button button-block button-positive">Cancel</a>
