@@ -3,5 +3,8 @@
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.2.4"
+  },
+  "dependencies": {
+    "firebase-token-generator": "^2.0.0"
   }
 }

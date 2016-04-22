@@ -27,20 +27,54 @@ app.config(function($stateProvider, $urlRouterProvider) {
       $stateProvider
         .state('login', {
           url: '/login',
-          views: {
-            'mainContent': {
-              templateUrl: 'login.html',
-              controller: 'loginCtrl'
-            }
-          }
+          templateUrl: 'login.html',
+          controller: 'loginCtrl'
         })
 
         .state('signUp', {
           url: '/signUp',
+          templateUrl: 'signUp.html',
+          controller: 'signUpCtrl'
+        })
+
+        .state('app', {
+          url: '/app',
+          abstract: true,
+          templateUrl: 'view/menu.html'
+        })
+
+        .state('app.home', {
+          url: '/home',
           views: {
-            'mainContent': {
-              templateUrl: 'signUp.html',
-              controller: 'signUpCtrl'
+            'menuContent': {
+              templateUrl: 'view/home.html'
+            }
+          }
+        })
+
+        .state('app.moods', {
+          url: '/moods',
+          views: {
+            'menuContent': {
+              templateUrl: 'view/moods/moods.html'
+            }
+          }
+        })
+
+        .state('app.schedules', {
+          url: '/schedules',
+          views: {
+            'menuContent': {
+              templateUrl: 'view/schedules/schedules.html'
+            }
+          }
+        })
+
+        .state('app.notes', {
+          url: '/notes',
+          views: {
+            'menuContent': {
+              templateUrl: 'view/notes/notes.html'
             }
           }
         });

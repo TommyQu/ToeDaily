@@ -2,21 +2,32 @@
 <ion-content>
 <div class="list padding">
   <label class="item item-input">
-    <input type="text" placeholder="Email" ng-model="user.email"/>
+    <input type="email" placeholder="Email" ng-model="user.email"/>
   </label>
   <label class="item item-input">
-    <input type="text" placeholder="Password" ng-model="user.password"/>
+    <input type="text" placeholder="Nickname" ng-model="user.nickname"/>
   </label>
   <label class="item item-input">
-    <input type="text" placeholder="Re-enter Password" ng-model="repassword"/>
+    <input type="password" placeholder="Password" ng-model="user.password"/>
+  </label>
+  <label class="item item-input">
+    <input type="password" placeholder="Re-enter Password" ng-model="repassword"/>
   </label>
   <ion-radio ng-model="user.gender" ng-value="'male'">Male</ion-radio>
   <ion-radio ng-model="user.gender" ng-value="'female'">Female</ion-radio>
 
-  <label class="item item-input">
-    <input type="text" placeholder="Date of birth" value="{{dob}}"/>
-  </label>
-  <button class="button button-positive" style="margin: 0;" ng-click="openDatePicker()">Select Date</button>
+  <div class="row toe-row">
+    <div class="col col-75">
+      <label class="item item-input">
+      <input type="text" placeholder="Date of birth" value="{{dob}}"/>
+      </label>
+    </div>
+    <div class="col col-25">
+      <button class="button button-positive" style="float: right;" ng-click="openDatePicker()">Select Date</button>
+    </div>
+  </div>
+
+
 
   <button class="button button-block button-positive" ng-click="signUp(user)">
     Submit
