@@ -53,10 +53,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
 
         .state('app.moods', {
+          cache: false,
           url: '/moods',
           views: {
             'menuContent': {
-              templateUrl: 'view/moods/moods.html'
+              templateUrl: 'view/moods/moods.html',
+              controller: 'moodsCtrl'
             }
           }
         })

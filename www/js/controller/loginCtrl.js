@@ -7,7 +7,7 @@ app.controller('loginCtrl', function($scope, $location) {
 			password : user.password
 		}, function(error, authData) {
 			if (error) {
-				console.log("Login Failed!", error);
+				alert(error);
 			} else {
 				console.log("Authenticated successfully with payload:", authData);
 				window.location.href = "#/app/home";
