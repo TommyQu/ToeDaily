@@ -1,6 +1,17 @@
 <ion-view view-title="Moods">
-<ion-content>
+<ion-content  id="all-moods-div">
 	<button class="button button-icon button-clear ion-plus" ng-click="openNewMoodsModal()">Add</button>
+	<div class="card" ng-repeat="mood in allMoods | orderBy:'-createdAt'">
+		<div class="item item-avatar">
+			<img src="img/emotions/happy.png" />
+			<button class="button icon-left ion-trash-b button-light mood-delete-btn">Delete</button>
+			<h2>{{mood.type}}</h2>
+			<p>{{mood.createdAt}}</p>
+		</div>
+		<div class="item item-body">
+			<p class="mood-content-p">{{mood.content}}</p>
+		</div>
+	</div>
 </ion-content>    
 <div class="bar bar-footer bar-balanced">
   <div class="title">Footer</div>

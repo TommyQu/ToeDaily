@@ -1,3 +1,25 @@
 .toe-row {
 	margin-left: -10px;
 }
+
+#log-out-modal {
+	height: 100px;
+}
+
+#all-moods-div {
+	margin-bottom: 60px;
+}
+
+.mood-content-p {
+	margin-top: -5px !important;
+	font-size: 17px !important;
+}
+
+.mood-delete-btn {
+	float: right;
+	margin-top: -16px;
+	margin-right: -16px;
+}
+/*select#mood-type option[value="Happy"]   { 
+	background-image:url(../img/emotions/happy.png);   
+}*/

@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('ToeDaily', ['ionic', 'ionic-datepicker', "firebase"]);
+var app = angular.module('ToeDaily', ['ionic', 'ionic-datepicker', 'firebase', 'ngCordova']);
 
 app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,14 +40,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('app', {
           url: '/app',
           abstract: true,
-          templateUrl: 'view/menu.html'
+          templateUrl: 'view/menu.html',
+          controller: 'menuCtrl'
         })
 
         .state('app.home', {
           url: '/home',
           views: {
             'menuContent': {
-              templateUrl: 'view/home.html'
+              templateUrl: 'view/home.html',
+              controller: 'homeCtrl'
             }
           }
         })
@@ -84,3 +86,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 
 });
+
+document.addEventListener("deviceready", function () {
+  $cordovaPlugin.someFunction().then(success, error);
+}, false);
+
+function success() {
+  alert("aa");
+};

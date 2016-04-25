@@ -33,7 +33,31 @@
           <i class="icon ion-pricetag placeholder-icon"></i>
           Notes
         </ion-item>
+        <ion-item menu-close ng-click="openLogOutModal()">
+          <i class="icon ion-log-out placeholder-icon"></i>
+          Log Out
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>
+
+
+<script id="log-out-modal.html" type="text/ng-template">
+  <ion-modal-view id="log-out-modal">
+    <ion-header-bar class="bar bar-header">
+      <h1 class="title">Are you sure to log out?</h1>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list padding">
+        <button class="button button-block button-positive" ng-click="logOut()">
+          Log Out
+        </button>
+        <button class="button button-block button-positive" ng-click="modal.hide()">
+          Cancel
+        </button>
+      </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
