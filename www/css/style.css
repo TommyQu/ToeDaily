@@ -20,6 +20,10 @@
 	margin-top: -16px;
 	margin-right: -16px;
 }
+
+.td-content {
+	margin-top: 20%;
+}
 /*select#mood-type option[value="Happy"]   { 
 	background-image:url(../img/emotions/happy.png);   
 }*/
