@@ -1,7 +1,35 @@
 <ion-view view-title="Home">
-  <ion-content class="padding">
-    <h2>Today's weather</h2>
-    <p>{{city}}</p>
-    <p ng-model="state"></p>
-  </ion-content>
+   <ion-content>
+      <div class="padding" id="weather-div">
+         <div class="row">
+            <div class="col col-75">
+               <h3 class="home-text">Today's weather</h3>
+            </div>
+            <div class="col col-25"><img src="{{img}}"></div>
+         </div>
+         <div class="row">
+            <div class="col"><b>Local Date:</b></div>
+            <div class="col">{{date}}</div>
+         </div>
+         <div class="row">
+            <div class="col"><b>Current Location:</b></div>
+            <div class="col">{{address}}</div>
+         </div>
+         <div class="row">
+            <div class="col"><b>Temperature:</b></div>
+            <div class="col">{{temp}}</div>
+         </div>
+         <div class="row">
+            <div class="col"><b>Humidity:</b></div>
+            <div class="col">{{humidity}}</div>
+         </div>
+      </div>
+      <div class="padding" id="feeling-div">
+        <div class="row">
+           <div class="col"><b>I'm feeling:</b></div>
+           <div class="col"><img src="img/emotions/happy.png" width="30px" height="30px" /></div>
+        </div>
+      </div>
+   </ion-content>
 </ion-view>
+

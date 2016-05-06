@@ -1,3 +1,5 @@
+/*Global css*/
+
 .toe-row {
 	margin-left: -10px;
 }
@@ -6,6 +8,61 @@
 	height: 100px;
 }
 
+.td-content {
+	/*margin-top: 20%;*/
+}
+/*select#mood-type option[value="Happy"]   { 
+	background-image:url(../img/emotions/happy.png);   
+}*/
+
+#log-in-view {
+	margin-top: 15%;
+}
+
+
+
+/*Lef side menu css*/
+.td-side-menu-content {
+	background-color:  #3f51b5;
+}
+
+.td-side-menu-content .item {
+	background-color: transparent;
+	color: white;
+}
+
+.td-side-menu-content .item-complex .item-content, .dark .item-radio .item-content {
+	background-color: transparent;
+}
+
+.td-side-menu-content h2,
+.td-side-menu-content h3,
+.td-side-menu-content p,
+.td-side-menu-content a {
+	color: white;
+}
+
+
+
+
+/*Home page css*/
+#weather-div {
+	background-color:  #03a9f4;
+	color: white;
+}
+
+#feeling-div {
+	background-color:  #ffc107;
+	color: white;
+}
+
+.home-text {
+	color: white;
+}
+
+
+
+/*Moods page css*/
 #all-moods-div {
 	margin-bottom: 60px;
 }
@@ -20,10 +77,3 @@
 	margin-top: -16px;
 	margin-right: -16px;
 }
-
-.td-content {
-	margin-top: 20%;
-}
-/*select#mood-type option[value="Happy"]   { 
-	background-image:url(../img/emotions/happy.png);   
-}*/
