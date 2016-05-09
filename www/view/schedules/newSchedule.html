@@ -1,0 +1,40 @@
+<ion-modal-view>
+<ion-header-bar class="bar bar-header">
+<h1 class="title">New Schedule</h1>
+<button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+</ion-header-bar>
+<ion-content>
+  <div class="list padding">
+    <label class="item item-input">
+      <input type="text" placeholder="Title" ng-model="schedule.title"/>
+    </label>
+    <div class="row toe-row">
+      <div class="col">
+        <div class="item item-icon-left td-date-time-picker-div" ion-datetime-picker monday-first seconds am-pm ng-model="schedule.startTime">
+            <i class="icon ion-ios-lightbulb-outline positive"></i>
+            Start time:
+            <strong id="schedule-start-time">{{schedule.startTime| date: "yyyy-MM-dd h:mm:ss a"}}</strong>
+        </div>
+      </div>
+    </div>
+    <div class="row toe-row">
+      <div class="col">
+        <div class="item item-icon-left td-date-time-picker-div" ion-datetime-picker monday-first seconds am-pm ng-model="schedule.endTime">
+            <i class="icon ion-ios-lightbulb-outline positive"></i>
+            End time:
+            <strong id="schedule-end-time">{{schedule.endTime| date: "yyyy-MM-dd h:mm:ss a"}}</strong>
+        </div>
+      </div>
+    </div>
+    <label class="item item-input">
+      <input type="text" placeholder="Location" ng-model="schedule.location"/>
+    </label>
+    <label class="item item-input">
+    	<input type="text" placeholder="Memo" ng-model="schedule.memo"/>
+    </label>
+    <button class="button button-block button-positive" ng-click="newSchedule(schedule)">
+    	Submit
+    </button>
+  </div>
+</ion-content>
+</ion-modal-view>

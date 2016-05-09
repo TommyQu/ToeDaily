@@ -9,7 +9,7 @@ app.controller('loginCtrl', function($scope, $location) {
 			if (error) {
 				alert(error);
 			} else {
-				console.log("Authenticated successfully with payload:", authData);
+				window.localStorage.setItem("loginUserEmail", authData.auth.token.email);
 				window.location.href = "#/app/home";
 			}
 		});

@@ -17,17 +17,14 @@
   <ion-radio ng-model="user.gender" ng-value="'female'">Female</ion-radio>
 
   <div class="row toe-row">
-    <div class="col col-70">
-      <label class="item item-input">
-      <input type="text" placeholder="Date of birth" value="{{dob}}"/>
-      </label>
-    </div>
-    <div class="col col-30">
-      <button class="button button-positive" style="float: right;" ng-click="openDatePicker()">Select Date</button>
+    <div class="col">
+      <div class="item item-icon-left td-date-time-picker-div" ion-datetime-picker date ng-model="user.dob">
+        <i class="icon ion-ios-lightbulb-outline positive"></i>
+        Date of birth:
+        <strong>{{user.dob| date: "yyyy-MM-dd"}}</strong>
+      </div>
     </div>
   </div>
-
-
 
   <button class="button button-block button-positive" ng-click="signUp(user)">
     Submit

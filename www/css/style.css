@@ -1,5 +1,4 @@
 /*Global css*/
-
 .toe-row {
 	margin-left: -10px;
 }
@@ -14,6 +13,10 @@
 /*select#mood-type option[value="Happy"]   { 
 	background-image:url(../img/emotions/happy.png);   
 }*/
+
+.td-date-time-picker-div {
+	font-size: 100%;
+}
 
 #log-in-view {
 	margin-top: 15%;
@@ -42,7 +45,9 @@
 	color: white;
 }
 
-
+.td-menu-tool-btn {
+	color: white !important;
+}
 
 
 /*Home page css*/
@@ -60,7 +65,13 @@
 	color: white;
 }
 
+.bar.bar-stable {
+	background-color: #3f51b5;
+}
 
+.bar.bar-stable .title {
+	color: white;
+}
 
 /*Moods page css*/
 #all-moods-div {
