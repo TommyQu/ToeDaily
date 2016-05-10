@@ -1,5 +1,17 @@
 <ion-view view-title="Schedules">
-<div class="bar bar-footer bar-positive">
-  <div class="title" ng-click="openNewScheduleModal()">New Schedule</div>
-</div>
+	<ion-content scroll="false" class="main-content padding text-center">
+		<h4>{{currentDate}}</h4>
+        <button class="button button-positive calendar-btn" ng-disabled="isToday()" ng-click="today()">Today</button>
+        <button class="button button-positive calendar-btn" ng-click="changeMode('month')">M</button>
+        <button class="button button-positive calendar-btn" ng-click="changeMode('week')">W</button>
+        <button class="button button-positive calendar-btn" ng-click="changeMode('day')">D</button>
+	    <calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource"
+	              range-changed="reloadSource(startTime, endTime)"
+	              event-selected="onEventSelected(event)" title-changed="onViewTitleChanged(title)"
+	              time-selected="onTimeSelected(selectedTime)" step="30"></calendar>
+	</ion-content>    
+	<div class="bar bar-footer bar-positive">
+		<div class="title" ng-click="openNewScheduleModal()">New Schedule</div>
+	</div>
 </ion-view>
+

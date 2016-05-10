@@ -7,6 +7,21 @@ app.factory("Schedule", function($firebaseArray) {
 
 app.controller('schedulesCtrl', function($scope, $ionicModal, $firebaseArray, Schedule) {
 
+	//Calendar
+	$scope.calendar = {};
+
+    $scope.changeMode = function (mode) {
+        $scope.calendar.mode = mode;
+    };
+
+	$scope.today = function () {
+	    $scope.calendar.currentDate = new Date();
+	};	
+
+    $scope.onViewTitleChanged = function (title) {
+        $scope.currentDate = title;
+    };
+
 	$ionicModal.fromTemplateUrl('view/schedules/newSchedule.html', {
 		scope: $scope
 	}).then(function(modal) {

@@ -88,3 +88,17 @@
 	margin-top: -16px;
 	margin-right: -16px;
 }
+
+
+/*Schedules page css*/
+.event-detail-container {
+	margin-top: 325px !important;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.calendar-btn {
+	min-width: 42px;
+	min-height: 37px;
+	margin-bottom: 5px;
+}
