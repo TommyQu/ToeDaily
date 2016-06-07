@@ -1,13 +1,17 @@
 var loginUserEmail = window.localStorage.getItem("loginUserEmail");
 
-app.factory("Mood", function($firebaseArray) {
+// app.factory("Mood", function($firebaseArray) {
+// 	var moodRef = new Firebase("https://toedaily.firebaseio.com/mood");
+// 	return $firebaseArray(moodRef.orderByChild("createdBy").equalTo(loginUserEmail));
+// });
+
+app.controller('moodsCtrl', function($scope, $ionicModal, $ionicPopup, $firebaseArray) {
+
 	var moodRef = new Firebase("https://toedaily.firebaseio.com/mood");
-	return $firebaseArray(moodRef.orderByChild("createdBy").equalTo(loginUserEmail));
-});
 
-app.controller('moodsCtrl', function($scope, $ionicModal, $firebaseArray, Mood) {
+	var moods = $firebaseArray(moodRef);
+	$scope.allMoods = moods;
 
-	$scope.allMoods = Mood;
 	$ionicModal.fromTemplateUrl('view/moods/newMoods.html', {
 		scope: $scope
 	}).then(function(modal) {
@@ -16,6 +20,8 @@ app.controller('moodsCtrl', function($scope, $ionicModal, $firebaseArray, Mood) 
 
 	$scope.openNewMoodsModal = function() {
 		$scope.modal.show();
+		$("#mood-type").val(0);
+		$("#mood-content-input").val("");
 	};
 
 	$scope.newMoods = function(mood) {
@@ -27,20 +33,39 @@ app.controller('moodsCtrl', function($scope, $ionicModal, $firebaseArray, Mood) 
 			+ currentdate.getMinutes() + ":"
 			+ currentdate.getSeconds();
 		mood.createdAt = createdAt;
-		$scope.mood = Mood;
 		mood.createdBy = loginUserEmail;
-		var result = $scope.mood.$add({
+		var result = moods.$add({
 			"type": mood.type,
 			"content": mood.content,
 			"createdAt": mood.createdAt,
 			"createdBy": mood.createdBy
 		});
 		if(result != "" && result != null) {
-			alert("Create mood successfully!");
-			$scope.modal.hide();
+			var alertPopup = $ionicPopup.alert({
+				title: 'Alert!',
+				template: 'Create mood successfully!'
+			});
+			alertPopup.then(function(res) {
+				$scope.modal.hide();
+			});
 		}
 		else {
 			alert("Error!");
 		}
 	};
+
+	$scope.openDeleteMoodPopup = function(mood) {
+		var confirmPopup = $ionicPopup.confirm({
+			title: 'Alert',
+			template: 'Do you want to delete this mood?'
+		});
+		confirmPopup.then(function(res) {
+			if(res) {
+				var result = moods.$remove(mood);
+				if(result == null)
+					alert("Error occurs when delete mood!");
+			}
+		});
+	};
+
 });

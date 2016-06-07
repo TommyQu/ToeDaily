@@ -4,7 +4,7 @@
 	<div class="card" ng-repeat="mood in allMoods | orderBy:'-createdAt'">
 		<div class="item item-avatar">
 			<img src="img/emotions/happy.png" />
-			<button class="button icon-left ion-trash-b button-light mood-delete-btn">Delete</button>
+			<button class="button icon-left ion-trash-b button-light mood-delete-btn" ng-click="openDeleteMoodPopup(mood)">Delete</button>
 			<h2>{{mood.type}}</h2>
 			<p>{{mood.createdAt}}</p>
 		</div>
